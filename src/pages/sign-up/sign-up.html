@@ -1,0 +1,84 @@
+<ion-content padding class="background">
+
+<div style="margin-top:50%">
+  <h1 style="font-family: Trajan Pro Bold; text-align: center; font-size: 35px">Sign Up</h1>
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Type Of User</ion-label>
+      <ion-select [(ngModel)]="userType">
+        <ion-option value="patient">Patient</ion-option>
+        <ion-option value="parent">Parent</ion-option>
+      </ion-select>
+    </ion-item>
+</ion-list>
+</div>
+
+
+
+<div [ngSwitch]="userType" >
+
+
+  <div *ngSwitchCase="'patient'">
+    <ion-list mode="wp">
+     <ion-item>
+          <ion-label floating>Name</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>E-mail</ion-label>
+          <ion-input type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password"></ion-input>
+      </ion-item>
+    </ion-list>
+  
+
+
+
+  <div style="margin-top: 15px">
+    <button ion-button (click)="firstexppush()" round full>Confirm</button>
+  </div>
+
+  </div>
+</div>
+
+<div [ngSwitch]="userType" >
+
+  <div *ngSwitchCase="'parent'">
+    <ion-list mode="wp">
+    
+        <ion-item>
+          <ion-label floating>E-mail</ion-label>
+          <ion-input type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Patient's E-mail</ion-label>
+          <ion-input type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password"></ion-input>
+      </ion-item>
+
+    </ion-list>
+  <div style="margin-top: 15px">
+    <button ion-button (click)="firstexppush()" round full>Confirm</button>
+  </div>
+  
+  </div>
+</div>
+
+<div style="margin-top: 15px">
+      <button ion-button (click)="homepop()" color="danger" round full>Back</button>
+  </div>
+
+
+
+</ion-content>
+
+

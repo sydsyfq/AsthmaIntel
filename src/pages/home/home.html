@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar hideBackButton="true" *navbar primary>
+    <ion-title style="text-align:center">MENU</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="background">
+
+<div style="text-align: center; margin-top:20%">
+  <button ion-button (click)="addmedpush()" style="width:85%" icon-left>
+      <ion-icon name="add"></ion-icon>
+        Add Inhalers
+  </button>
+
+  <button ion-button (click)="asthmalogpush()" style="width:85%; margin-top:15px" icon-left>
+      <ion-icon name="stats"></ion-icon>
+        Asthma Log
+  </button>
+
+  <button ion-button (click)="docapppush()" style="width:85%; margin-top:15px;" icon-left>
+      <ion-icon name="book"></ion-icon>
+        Doctor Appointment
+  </button>
+
+  <button ion-button (click)="genreppush()" style="width:85%; margin-top:15px" icon-left>
+      <ion-icon name="document"></ion-icon>
+        Asthma Report
+  </button>
+
+  <button ion-button (click)="medusagepush()" style="width:85%; margin-top:15px" icon-left>
+      <ion-icon name="checkbox"></ion-icon>
+    Medicine Tracker
+  </button>
+
+  <button ion-button (click)="profilepush()" style="width:85%; margin-top:15px" icon-left>
+      <ion-icon name="contact"></ion-icon>
+        Profile
+  </button>
+
+<button ion-button color="danger" (click)="logoutpush()" style="width:85%; margin-top:15px" icon-left>
+    <ion-icon name="log-out"></ion-icon>
+        Log Out
+</button>
+</div>
+
+</ion-content>

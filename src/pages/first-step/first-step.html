@@ -1,0 +1,84 @@
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+    <ion-title>PICK INHALER</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="background">
+
+  <ion-card>
+  <ion-card-header>
+    Choose Inhalers
+  </ion-card-header>
+
+  <ion-card-content>
+
+    <ion-item>
+      <ion-label>Preventer Inhaler</ion-label>
+      <ion-checkbox [(ngModel)]="preventer"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Reliever Inhaler</ion-label>
+      <ion-checkbox [(ngModel)]="reliever"></ion-checkbox>
+    </ion-item>
+
+  </ion-card-content>
+</ion-card>
+
+<div style="margin-top:15px">
+<ion-card>
+<ion-card-header>
+  Reliever Inhaler
+</ion-card-header>
+
+<ion-list>
+
+  <ion-item>
+    <ion-label floating>Inhaler Name:</ion-label>
+    <ion-input type="text" value=""></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Dosage:</ion-label>
+    <ion-input type="text" value=""></ion-input>
+  </ion-item>
+
+</ion-list>
+</ion-card>
+</div>
+
+<div style="margin-top:15px">
+  <ion-card>
+    <ion-card-header>
+        Preventer Inhaler
+      </ion-card-header>
+
+      <ion-list>
+
+          <ion-item>
+              <ion-label floating>Inhaler Name:</ion-label>
+              <ion-input type="text" value=""></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Dosage:</ion-label>
+              <ion-input type="text" value=""></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Daily Usage:</ion-label>
+              <ion-input type="text" value=""></ion-input>
+          </ion-item>
+
+    </ion-list>
+  </ion-card>
+</div>
+
+  <div style="margin-top: 15px">
+  <button ion-button (click)="navpagepush()" round full>Confirm</button>
+  </div>
+
+</ion-content>
