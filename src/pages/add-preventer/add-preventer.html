@@ -1,0 +1,58 @@
+<!--
+  Generated template for the AddPreventer page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Preventer Inhaler</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="background">
+
+<div style="margin-top: 35%;">
+
+<div style="text-align: center;">
+ <h6> Please fill in the information about your preventer inhaler.</h6>
+
+</div>
+
+<div style="margin-top:15px">
+  <ion-card>
+    <ion-card-header>
+        Preventer Inhaler
+      </ion-card-header>
+
+      <ion-list>
+
+          <ion-item>
+              <ion-label floating>Inhaler Name:</ion-label>
+              <ion-input type="text" [(ngModel)]="form.name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Dosage:</ion-label>
+              <ion-input type="number" min="1" [(ngModel)]="form.dosage"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Daily Usage:</ion-label>
+              <ion-input type="number" min='1' [(ngModel)]="form.dailyDosage"></ion-input>
+          </ion-item>
+
+    </ion-list>
+  </ion-card>
+</div>
+
+<div style="margin-top: 15px">
+  <button ion-button  round full (click)="addPreventer()">ADD</button>
+  </div>
+
+  </div>
+
+</ion-content>

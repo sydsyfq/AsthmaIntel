@@ -1,13 +1,14 @@
 <ion-content padding class="background">
 
-<div style="margin-top:50%">
+<div style="margin-top: 50%">
+  <!-- <div style="margin-top:50%"> -->
   <h1 style="font-family: Trajan Pro Bold; text-align: center; font-size: 35px">Sign Up</h1>
-  <ion-list>
+  <!-- <ion-list>
 
     <ion-item>
       <ion-label>Type Of User</ion-label>
       <ion-select [(ngModel)]="userType">
-        <ion-option value="patient">Patient</ion-option>
+        <ion-option value="patient" selected="selected">Patient</ion-option>
         <ion-option value="parent">Parent</ion-option>
       </ion-select>
     </ion-item>
@@ -16,68 +17,76 @@
 
 
 
-<div [ngSwitch]="userType" >
+<div [ngSwitch]="userType" > 
 
 
-  <div *ngSwitchCase="'patient'">
-    <ion-list mode="wp">
+  <div *ngSwitchCase="'patient'"> -->
+    <ion-list>
      <ion-item>
           <ion-label floating>Name</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>E-mail</ion-label>
-          <ion-input type="email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="text" [(ngModel)]="form.name"></ion-input>
       </ion-item>
+      <ion-item>
+          <ion-label floating>E-mail</ion-label>
+          <ion-input type="email" [(ngModel)]="form.email"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="form.password"></ion-input>
+      </ion-item>
+     <!-- <ion-item>
+          <ion-label floating>Parent's Username</ion-label>
+          <ion-input type="email" [(ngModel)]="form.usernameParent"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Parent's Password</ion-label>
+          <ion-input type="password" [(ngModel)]="form.passwordParent"></ion-input>
+      </ion-item> -->
     </ion-list>
   
 
 
 
   <div style="margin-top: 15px">
-    <button ion-button (click)="firstexppush()" round full>Confirm</button>
+    <button ion-button (click)="register()" round full>Confirm</button>
   </div>
 
-  </div>
+  <!-- </div>
 </div>
 
 <div [ngSwitch]="userType" >
 
   <div *ngSwitchCase="'parent'">
-    <ion-list mode="wp">
+    <ion-list>
     
         <ion-item>
           <ion-label floating>E-mail</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-input type="email" [(ngModel)]="formParent.email"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Patient's E-mail</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-label floating>Patient's E-mail </ion-label>
+          <ion-input type="email" [(ngModel)]="formParent.emailPatient"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label floating>Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="formParent.password"></ion-input>
       </ion-item>
 
     </ion-list>
   <div style="margin-top: 15px">
-    <button ion-button (click)="firstexppush()" round full>Confirm</button>
+    <button ion-button (click)="registerParent()" round full>Confirm</button>
   </div>
   
   </div>
-</div>
+</div> -->
 
 <div style="margin-top: 15px">
-      <button ion-button (click)="homepop()" color="danger" round full>Back</button>
+      <button ion-button (click)="homePop()" color="danger" round full>Back</button>
   </div>
 
-
+</div>
 
 </ion-content>
 

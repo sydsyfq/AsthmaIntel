@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { Login } from '../login/login'
+
 /**
  * Generated class for the HomeParent page.
  *
@@ -19,6 +21,10 @@ export class HomeParent {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomeParent');
+  }
+
+  logOutPush(){
+  	this.navCtrl.setRoot(Login);
   }
 
 }

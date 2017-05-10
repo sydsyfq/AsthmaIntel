@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Account Setup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<h6>Please enter username for your parent's account</h6>
+
+<ion-list>
+     <ion-item>
+          <ion-label floating>Parent's Account Username</ion-label>
+          <ion-input type="email" [(ngModel)]="form.parentUsername"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Parent's Account Password</ion-label>
+          <ion-input type="password" [(ngModel)]="form.parentPassword"></ion-input>
+      </ion-item>
+      </ion-list>
+
+      <button ion-button (click)="next()" style="width:85%; margin-top:15px" icon-left>
+      <ion-icon name="stats"></ion-icon>
+        next
+  </button>
+  <button ion-button (click)="push()" style="width:85%; margin-top:15px" icon-left>
+      <ion-icon name="stats"></ion-icon>
+        push
+  </button>
+
+</ion-content>
+

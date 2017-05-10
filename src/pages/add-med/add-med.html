@@ -1,65 +1,63 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title style="text-align:center">ADD INHALERS</ion-title>
-  </ion-navbar>
-
+  
 </ion-header>
-
 
 <ion-content padding class="background">
 
-  <ion-card>
-  <ion-card-header>
-    Reliever Inhaler
-  </ion-card-header>
+<div padding>
+    <ion-segment [(ngModel)]="inhalerType" color="secondary">
+      <ion-segment-button value="preventer">
+        	Add Preventer
+      </ion-segment-button>
+      <ion-segment-button value="reliever">
+        	Add Reliever
+      </ion-segment-button>
+    </ion-segment>
+</div>
 
-  <ion-list>
+<div [ngSwitch]="inhalerType" > 
 
-    <ion-item >
-      <ion-label floating>Inhaler Name:</ion-label>
-      <ion-input type="text" value=""></ion-input>
-    </ion-item>
+
+  <div *ngSwitchCase="'preventer'">
+
+  	<ion-list>
+  <ion-item-sliding *ngFor="let preventer of preventers" (click)="preventerClick(preventer)">
 
     <ion-item>
-      <ion-label floating>Dosage:</ion-label>
-      <ion-input type="text" value=""></ion-input>
+    <h2 text-wrap> {{preventer.name}} </h2>
+    <h3> {{preventer.dosage}} </h3>
+    <p> {{preventer.dailyDosage}} </p>
     </ion-item>
+    
+  </ion-item-sliding>
+</ion-list>
 
-    <button ion-button style="text-align: center; margin-bottom: 15px; margin-left:13%"color="secondary" round>+ ADD</button>
-    <button ion-button style="text-align: center; margin-bottom: 15px"color="light" round>EDIT</button>
-
-  </ion-list>
-</ion-card>
-
-  <div style="margin-top:15px">
-    <ion-card>
-      <ion-card-header>
-          Preventer Inhaler
-        </ion-card-header>
-
-        <ion-list>
-
-            <ion-item>
-                <ion-label floating>Inhaler Name:</ion-label>
-                <ion-input type="text" value=""></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label floating>Dosage:</ion-label>
-                <ion-input type="text" value=""></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label floating>Daily Usage:</ion-label>
-                <ion-input type="text" value=""></ion-input>
-            </ion-item>
-
-            <button ion-button style="text-align: center; margin-bottom: 15px; margin-left:13%"color="secondary" round>+ ADD</button>
-            <button ion-button style="text-align: center; margin-bottom: 15px"color="light" round>EDIT</button>
-
-      </ion-list>
-    </ion-card>
+  	<button ion-button round full (click)="addPreventer()">Add</button>
   </div>
+</div>
+
+<div [ngSwitch]="inhalerType" >
+
+  <div *ngSwitchCase="'reliever'">
+  <ion-list>
+  <ion-item-sliding  *ngFor="let reliever of relievers">
+
+    <ion-item>
+    <h2 text-wrap> {{reliever.relieverName}} </h2>
+    <h3> {{reliever.relieverDosage}} </h3>
+    </ion-item>
+    
+  </ion-item-sliding>
+</ion-list>
+
+   	<button ion-button (click)="addReliever()" round full>Add</button>
+  </div>
+</div>
+
+<button ion-button (click)="homePop()" color="danger" round full style="margin-top: 10px">Back</button>
+
+
+
+
 
 </ion-content>

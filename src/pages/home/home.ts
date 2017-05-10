@@ -8,6 +8,8 @@ import { DocApp } from '../doc-app/doc-app';
 import { GenReport } from '../gen-report/gen-report';
 import { MedUsage } from '../med-usage/med-usage';
 import { Profile } from '../profile/profile';
+import { FirstStep } from '../first-step/first-step';
+import { FirstSetupParent } from '../first-setup-parent/first-setup-parent';
 
 @Component({
   selector: 'page-home',
@@ -44,7 +46,15 @@ export class HomePage {
   }
 
   logoutpush(){
-    this.navCtrl.push(Login);
+    this.navCtrl.setRoot(Login);
+  }
+
+  logoutpush1(){
+    this.navCtrl.push(FirstStep);
+  }
+
+  logoutpush2(){
+    this.navCtrl.push(FirstSetupParent);
   }
 
 }

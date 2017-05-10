@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { HomePage } from '../home/home' ;
+import { FirstStepSecond } from '../first-step-second/first-step-second'
 
 /**
  * Generated class for the FirstStep page.
@@ -16,15 +17,22 @@ import { HomePage } from '../home/home' ;
 })
 export class FirstStep {
 
+  form: any;
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.form={
+      relieverName: '',
+      relieverDosage: ''
+    }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FirstStep');
   }
 
-  navpagepush(){
-    this.navCtrl.push(HomePage);
+  firstStepSecond(){
+    this.navCtrl.setRoot(FirstStepSecond);
   }
 
 }

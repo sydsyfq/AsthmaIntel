@@ -1,14 +1,14 @@
 <ion-header>
 
   <ion-navbar hideBackButton="true">
-    <ion-title>PICK INHALER</ion-title>
+    <ion-title>ADD INHALER</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding class="background">
 
-  <ion-card>
+ <!-- <ion-card>
   <ion-card-header>
     Choose Inhalers
   </ion-card-header>
@@ -28,6 +28,14 @@
   </ion-card-content>
 </ion-card>
 
+
+-->
+<div style="margin-top: 50%;">
+<div style="text-align: center;">
+  <h6> Please fill in the information about your preventer inhaler.</h6>
+
+</div>
+
 <div style="margin-top:15px">
 <ion-card>
 <ion-card-header>
@@ -38,17 +46,19 @@
 
   <ion-item>
     <ion-label floating>Inhaler Name:</ion-label>
-    <ion-input type="text" value=""></ion-input>
+    <ion-input type="text" [(ngModel)]="form.name"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>Dosage:</ion-label>
-    <ion-input type="text" value=""></ion-input>
+    <ion-input type="number" min="1" [(ngModel)]="form.dosage"></ion-input>
   </ion-item>
 
 </ion-list>
 </ion-card>
 </div>
+
+<!--
 
 <div style="margin-top:15px">
   <ion-card>
@@ -75,10 +85,18 @@
 
     </ion-list>
   </ion-card>
-</div>
+</div> -->
+
+
+
 
   <div style="margin-top: 15px">
-  <button ion-button (click)="navpagepush()" round full>Confirm</button>
+  <button ion-button  round full>ADD</button>
+  </div>
+
+   <div style="margin-top: 15px">
+  <button ion-button color="secondary" (click)="firstStepSecond()" round full>NEXT</button>
+  </div>
   </div>
 
 </ion-content>

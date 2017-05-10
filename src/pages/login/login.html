@@ -23,17 +23,21 @@
 
         <ion-item>
           <ion-label floating>E-mail</ion-label>
-          <ion-input type="email" ></ion-input>
+          <ion-input type="email" [(ngModel)]="form.email" ></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label floating>Password</ion-label>
-          <ion-input type="password" ></ion-input>
+          <ion-input type="password" [(ngModel)]="form.password"></ion-input>
       </ion-item>
     </ion-list>
   
     <div style="margin-top: 15px">
-      <button ion-button (click)="navpagepush()" round full>Sign in</button>
+      <button ion-button (click)="patientLogin()" round full>Sign in</button>
+    </div>
+
+    <div style="margin-top: 15px">
+      <button ion-button (click)="signuppush()" color="secondary" round full >No account? Sign up (Patient only!)</button>
     </div>
     
   </div>
@@ -41,27 +45,25 @@
 
 <div [ngSwitch]="userType" >
 
-  <div *ngSwitchCase="'parent'">
-    <ion-list mode="wp">
-    
+    <div *ngSwitchCase="'parent'">
+
+        <ion-list >
+
         <ion-item>
-          <ion-label floating>E-mail</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-label floating>Parent's Username</ion-label>
+          <ion-input type="email" [(ngModel)]="formParent.parentUsername" ></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-label floating>Parent's Password</ion-label>
+          <ion-input type="password" [(ngModel)]="formParent.parentPassword"></ion-input>
       </ion-item>
-
     </ion-list>
- <div style="margin-top: 15px">
-      <button ion-button (click)="navpagepush()" round full>Sign in</button>
+
+      <div style="margin-top: 15px">
+        <button ion-button (click)="login()" round full>Sign in</button>
+      </div>
     </div>
-  </div>
 </div>
 
-<div style="margin-top: 15px">
-      <button ion-button (click)="signuppush()" color="secondary" round full >Don't have an account? Sign up</button>
-    </div>
 </ion-content>

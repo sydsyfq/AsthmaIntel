@@ -1,35 +1,1 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { SignUp } from '../sign-up/sign-up';
-import { HomePage } from '../home/home';
-
-/**
- * Generated class for the Login page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-@IonicPage()
-@Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
-})
-export class Login {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Login');
-  }
-
-  navpagepush(){
-    this.navCtrl.push(HomePage);
-  }
-
-  signuppush(){
-    this.navCtrl.push(SignUp);
-  }
-
-}
+import { Component } from '@angular/core';import { IonicPage, NavController, NavParams, LoadingController,AlertController } from 'ionic-angular';import { SignUp } from '../sign-up/sign-up';import { HomePage } from '../home/home';import { HomeParent } from '../home-parent/home-parent';import { AuthProvider } from '../../providers/auth';/** * Generated class for the Login page. * * See http://ionicframework.com/docs/components/#navigation for more info * on Ionic pages and navigation. */@IonicPage()@Component({  selector: 'page-login',  templateUrl: 'login.html',})export class Login {    userType:string ='patient';  form: any;  formParent : any;  error: any;  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthProvider, private loadingCtrl: LoadingController, private alertCtrl: AlertController) {    this.form= {      email: '',       password: ''    }    this.formParent= {     parentUsername: '',     parentPassword: ''    }  }  ionViewDidLoad() {    console.log('ionViewDidLoad Login');  }  patientLogin(){    if(this.form.email == "" || this.form.password == "")    {      let alertfill = this.alertCtrl.create({      title: 'Attention!',      subTitle: 'Please complete all details!',      buttons: ['Ok']    });    alertfill.present();    }    else    {let loading = this.loadingCtrl.create({      content: 'Loading..'    });    loading.present();    this.auth.loginWithEmail(this.form).subscribe(data => {      setTimeout(() => {        loading.dismiss();        this.navCtrl.setRoot(HomePage);        // The auth subscribe method inside the app.ts will handle the page switch to home      }, 1000);    }, err => {      setTimeout(() => {        loading.dismiss();        let alert = this.alertCtrl.create({        title: 'Fail!',        subTitle: 'Incorrect E-mail or Password!',        buttons: ['OK']        });        alert.present();        this.error = err;      }, 1000);    });  }  }  parentLogin(){    if(this.formParent.parentUsername == "" || this.formParent.parentPassword == "")    {          let alertfill = this.alertCtrl.create({      title: 'Attention!',      subTitle: 'Please complete all details!',      buttons: ['Ok']    });    alertfill.present();    }    else    {    let loading = this.loadingCtrl.create({      content: 'Loading..'    });    loading.present();    this.auth.loginWithEmail(this.formParent).subscribe(data => {      setTimeout(() => {        loading.dismiss();        this.navCtrl.setRoot(HomeParent);        // The auth subscribe method inside the app.ts will handle the page switch to home      }, 1000);    }, err => {      setTimeout(() => {        loading.dismiss();        let alert = this.alertCtrl.create({        title: 'Fail!',        subTitle: 'Incorrect E-mail or Password!',        buttons: ['OK']        });        alert.present();        this.error = err;      }, 1000);    });    }}  signuppush(){    this.navCtrl.push(SignUp);  }}
